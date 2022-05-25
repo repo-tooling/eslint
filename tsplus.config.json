@@ -1,0 +1,11 @@
+{
+  "importMap": {
+    "^(.*)/packages/([^/]*)/_src(.*)/index\\.ts$": "@repo-tooling/$2$3",
+    "^(.*)/packages/([^/]*)/_src(.*)\\.ts$": "@repo-tooling/$2$3",
+    "^(.*)/packages/([^/]*)/_test/(.*)\\.ts$": "@repo-tooling/$2/test/$3",
+    "^(.*)/packages/([^/]*)/_examples/(.*)\\.ts$": "@repo-tooling/$2/examples/$3"
+  },
+  "traceMap": {
+    "^(.*)/packages/([^/]*)/(.*)$": "(@repo-tooling/$2) $3"
+  }
+}
