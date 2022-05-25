@@ -230,11 +230,11 @@ __metadata:
   linkType: hard
 
 "@babel/parser@npm:^7.0.0, @babel/parser@npm:^7.11.5, @babel/parser@npm:^7.16.7, @babel/parser@npm:^7.18.0":
-  version: 7.18.0
-  resolution: "@babel/parser@npm:7.18.0"
+  version: 7.18.3
+  resolution: "@babel/parser@npm:7.18.3"
   bin:
     parser: ./bin/babel-parser.js
-  checksum: 253b5828bf4a0b443301baedc5993d6f7f35aa0d81cf8f2f2f53940904b7067eab7bd2380aee4b3be1d8efd5ae1008eb0fad19bde28f5fbc213c0fdf9a414466
+  checksum: 6894b3266f84b6c6b52bf09e7f61526efc35d8afa72ff0ad9aecb27a4b6de02d1ebc7f61fc3ae7c0fd8ecb5ac17083d1f27c1b3176e5eac41131d7160a9a7d88
   languageName: node
   linkType: hard
 
@@ -253,11 +253,11 @@ __metadata:
   linkType: hard
 
 "@babel/runtime@npm:^7.10.4, @babel/runtime@npm:^7.5.5":
-  version: 7.18.2
-  resolution: "@babel/runtime@npm:7.18.2"
+  version: 7.18.3
+  resolution: "@babel/runtime@npm:7.18.3"
   dependencies:
     regenerator-runtime: ^0.13.4
-  checksum: bce799f99727daa79fbe682cc87ca23feb635499269e37c4523041d22cf269fe952623b83c7b84bf1e33e65091919ac9e1fdabff95fbeeb70f299a9ea71cc80d
+  checksum: db8526226aa02cfa35a5a7ac1a34b5f303c62a1f000c7db48cb06c6290e616483e5036ab3c4e7a84d0f3be6d4e2148d5fe5cec9564bf955f505c3e764b83d7f1
   languageName: node
   linkType: hard
 
@@ -822,24 +822,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@repo-tooling/eslint-plugin-dprint@workspace:packages/eslint-plugin-dprint"
   dependencies:
-    "@types/diff": ^5.0.2
-  peerDependencies:
     "@dprint/formatter": ^0.2.0
     "@dprint/typescript": ^0.68.3
+    "@types/diff": ^5.0.2
     "@typescript-eslint/utils": ^5.0.0
     diff: ^5.0.0
     eslint: ^8.0.0
-  peerDependenciesMeta:
-    "@dprint/formatter":
-      optional: true
-    "@dprint/typescript":
-      optional: true
-    "@typescript-eslint/utils":
-      optional: true
-    diff:
-      optional: true
-    eslint:
-      optional: true
   languageName: unknown
   linkType: soft
 
@@ -1165,7 +1153,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/utils@npm:5.26.0":
+"@typescript-eslint/utils@npm:5.26.0, @typescript-eslint/utils@npm:^5.0.0":
   version: 5.26.0
   resolution: "@typescript-eslint/utils@npm:5.26.0"
   dependencies:
@@ -1702,13 +1690,6 @@ __metadata:
   bin:
     browserslist: cli.js
   checksum: 1e4b719ac2ca0fe235218a606e8b8ef16b8809e0973b924158c39fbc435a0b0fe43437ea52dd6ef5ad2efcb83fcb07431244e472270177814217f7c563651f7d
-  languageName: node
-  linkType: hard
-
-"buffer-crc32@npm:~0.2.3":
-  version: 0.2.13
-  resolution: "buffer-crc32@npm:0.2.13"
-  checksum: 06252347ae6daca3453b94e4b2f1d3754a3b146a111d81c68924c22d91889a40623264e95e67955b1cb4a68cbedf317abeabb5140a9766ed248973096db5ce1c
   languageName: node
   linkType: hard
 
@@ -2532,7 +2513,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"diff@npm:^5.1.0":
+"diff@npm:^5.0.0, diff@npm:^5.1.0":
   version: 5.1.0
   resolution: "diff@npm:5.1.0"
   checksum: c7bf0df7c9bfbe1cf8a678fd1b2137c4fb11be117a67bc18a0e03ae75105e8533dbfb1cda6b46beb3586ef5aed22143ef9d70713977d5fb1f9114e21455fba90
@@ -2570,17 +2551,6 @@ __metadata:
   version: 8.6.0
   resolution: "dotenv@npm:8.6.0"
   checksum: 38e902c80b0666ab59e9310a3d24ed237029a7ce34d976796349765ac96b8d769f6df19090f1f471b77a25ca391971efde8a1ea63bb83111bd8bec8e5cc9b2cd
-  languageName: node
-  linkType: hard
-
-"dprint@npm:^0.29.1":
-  version: 0.29.1
-  resolution: "dprint@npm:0.29.1"
-  dependencies:
-    yauzl: =2.10.0
-  bin:
-    dprint: bin.js
-  checksum: 1ad480dce38c7612b93ff046f585a4d5010eb3f459c32e77f3b3913443b8108f5e1d53c34048578b732d06a32672b0475fa7c5639084a6d4df422faa7467a814
   languageName: node
   linkType: hard
 
@@ -3131,7 +3101,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8.16.0":
+"eslint@npm:^8.0.0, eslint@npm:^8.16.0":
   version: 8.16.0
   resolution: "eslint@npm:8.16.0"
   dependencies:
@@ -3385,15 +3355,6 @@ __metadata:
   dependencies:
     reusify: ^1.0.4
   checksum: 32cf15c29afe622af187d12fc9cd93e160a0cb7c31a3bb6ace86b7dea3b28e7b72acde89c882663f307b2184e14782c6c664fa315973c03626c7d4bff070bb0b
-  languageName: node
-  linkType: hard
-
-"fd-slicer@npm:~1.1.0":
-  version: 1.1.0
-  resolution: "fd-slicer@npm:1.1.0"
-  dependencies:
-    pend: ~1.2.0
-  checksum: c8585fd5713f4476eb8261150900d2cb7f6ff2d87f8feb306ccc8a1122efd152f1783bdb2b8dc891395744583436bfd8081d8e63ece0ec8687eeefea394d4ff2
   languageName: node
   linkType: hard
 
@@ -5429,11 +5390,11 @@ __metadata:
   linkType: hard
 
 "nan@npm:^2.12.1":
-  version: 2.15.0
-  resolution: "nan@npm:2.15.0"
+  version: 2.16.0
+  resolution: "nan@npm:2.16.0"
   dependencies:
     node-gyp: latest
-  checksum: 33e1bb4dfca447fe37d4bb5889be55de154828632c8d38646db67293a21afd61ed9909cdf1b886214a64707d935926c4e60e2b09de9edfc2ad58de31d6ce8f39
+  checksum: cb16937273ea55b01ea47df244094c12297ce6b29b36e845d349f1f7c268b8d7c5abd126a102c5678a1e1afd0d36bba35ea0cc959e364928ce60561c9306064a
   languageName: node
   linkType: hard
 
@@ -5938,13 +5899,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pend@npm:~1.2.0":
-  version: 1.2.0
-  resolution: "pend@npm:1.2.0"
-  checksum: 6c72f5243303d9c60bd98e6446ba7d30ae29e3d56fdb6fae8767e8ba6386f33ee284c97efe3230a0d0217e2b1723b8ab490b1bbf34fcbb2180dbc8a9de47850d
-  languageName: node
-  linkType: hard
-
 "picocolors@npm:^1.0.0":
   version: 1.0.0
   resolution: "picocolors@npm:1.0.0"
@@ -6387,8 +6341,6 @@ __metadata:
     "@babel/plugin-transform-modules-commonjs": ^7.18.2
     "@changesets/changelog-github": ^0.4.4
     "@changesets/cli": ^2.22.0
-    "@dprint/formatter": ^0.2.0
-    "@dprint/typescript": ^0.68.3
     "@effect-ts/build-utils": 0.40.2
     "@effect-ts/core": ^0.60.1
     "@repo-tooling/eslint-plugin-dprint": "workspace:*"
@@ -6403,7 +6355,6 @@ __metadata:
     concurrently: ^7.2.1
     cpx: ^1.5.0
     diff: ^5.1.0
-    dprint: ^0.29.1
     eslint: ^8.16.0
     eslint-import-resolver-typescript: ^2.7.1
     eslint-plugin-codegen: 0.16.1
@@ -7943,16 +7894,6 @@ __metadata:
     y18n: ^5.0.5
     yargs-parser: ^21.0.0
   checksum: 00d58a2c052937fa044834313f07910fd0a115dec5ee35919e857eeee3736b21a4eafa8264535800ba8bac312991ce785ecb8a51f4d2cc8c4676d865af1cfbde
-  languageName: node
-  linkType: hard
-
-"yauzl@npm:=2.10.0":
-  version: 2.10.0
-  resolution: "yauzl@npm:2.10.0"
-  dependencies:
-    buffer-crc32: ~0.2.3
-    fd-slicer: ~1.1.0
-  checksum: 7f21fe0bbad6e2cb130044a5d1d0d5a0e5bf3d8d4f8c4e6ee12163ce798fee3de7388d22a7a0907f563ac5f9d40f8699a223d3d5c1718da90b0156da6904022b
   languageName: node
   linkType: hard
 
