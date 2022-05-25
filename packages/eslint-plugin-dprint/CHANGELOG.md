@@ -1,5 +1,11 @@
 # @repo-tooling/eslint-plugin-dprint
 
+## 0.0.3
+
+### Patch Changes
+
+- [#4](https://github.com/repo-tooling/eslint/pull/4) [`542cec2`](https://github.com/repo-tooling/eslint/commit/542cec2769c0ae3d24bb03cccf9c0c9aa373eb86) Thanks [@IMax153](https://github.com/IMax153)! - remove peerDependencies in favor of dependencies
+
 ## 0.0.2
 
 ### Patch Changes
