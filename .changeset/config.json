@@ -3,7 +3,7 @@
   "changelog": [
     "@changesets/changelog-github",
     {
-      "repo": "repo-tooling/eslint-plugin-dprint"
+      "repo": "repo-tooling/eslint"
     }
   ],
   "commit": false,
