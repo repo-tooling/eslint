@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "main": "./build/cjs/index.js",
   "module": "./build/mjs/index.mjs",
-  "repository": "https://github.com/ts-plus/eslint.git",
-  "author": "Michael Arnaldi <arnaldimichael@gmail.com>",
+  "repository": "https://github.com/repo-tooling/eslint.git",
+  "author": "Maxwell Brown <maxwellbrown1990@gmail.com>",
   "license": "MIT",
   "engines": {
     "node": "^10.12.0 || >=12.0.0"
