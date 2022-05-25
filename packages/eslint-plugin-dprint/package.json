@@ -41,29 +41,12 @@
       "import": "./build/esm/*.js"
     }
   },
-  "peerDependencies": {
+  "dependencies": {
     "@dprint/formatter": "^0.2.0",
     "@dprint/typescript": "^0.68.3",
     "@typescript-eslint/utils": "^5.0.0",
     "diff": "^5.0.0",
     "eslint": "^8.0.0"
-  },
-  "peerDependenciesMeta": {
-    "@dprint/formatter": {
-      "optional": true
-    },
-    "@dprint/typescript": {
-      "optional": true
-    },
-    "@typescript-eslint/utils": {
-      "optional": true
-    },
-    "diff": {
-      "optional": true
-    },
-    "eslint": {
-      "optional": true
-    }
   },
   "devDependencies": {
     "@types/diff": "^5.0.2"
