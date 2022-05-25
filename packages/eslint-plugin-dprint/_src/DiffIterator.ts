@@ -1,6 +1,5 @@
 import { Diff } from "@repo-tooling/eslint-plugin-dprint/Diff"
 import { RegularExpression } from "@repo-tooling/eslint-plugin-dprint/RegularExpression"
-import { Tuple } from "@tsplus/stdlib/data/Tuple"
 import type { Change } from "diff"
 import { diffChars } from "diff"
 
@@ -36,7 +35,7 @@ export class DiffIterator implements IterableIterator<Diff> {
     } else {
       this.currentIndex = this.currentIndex + 1
       this.currentLocation = this.currentLocation + change.value.length
-      return { done: false, value: Diff.NoChange({}) }
+      return { done: false, value: Diff.NoChange }
     }
   }
 
@@ -116,22 +115,22 @@ export class DiffIterator implements IterableIterator<Diff> {
   }
 
   private newAddedDiff(numChanges: number, newText: string): Diff {
-    const range = Tuple(this.currentLocation, this.currentLocation)
+    const range: [number, number] = [this.currentLocation, this.currentLocation]
     this.currentIndex = this.currentIndex + numChanges
-    return Diff.Addition({ range, newText })
+    return Diff.Addition(range, newText)
   }
 
   private newRemovedDiff(numChanges: number, oldText: string): Diff {
-    const range = Tuple(this.currentLocation, this.currentLocation + oldText.length)
+    const range: [number, number] = [this.currentLocation, this.currentLocation + oldText.length]
     this.currentIndex = this.currentIndex + numChanges
     this.currentLocation = this.currentLocation + oldText.length
-    return Diff.Removal({ range, oldText })
+    return Diff.Removal(range, oldText)
   }
 
   private newReplacedDiff(numChanges: number, oldText: string, newText: string): Diff {
-    const range = Tuple(this.currentLocation, this.currentLocation + oldText.length)
+    const range: [number, number] = [this.currentLocation, this.currentLocation + oldText.length]
     this.currentIndex = this.currentIndex + numChanges
     this.currentLocation = this.currentLocation + oldText.length
-    return Diff.Replacement({ range, newText, oldText })
+    return Diff.Replacement(range, oldText, newText)
   }
 }

@@ -4,7 +4,6 @@ import { ConfigSchema } from "@repo-tooling/eslint-plugin-dprint/ConfigSchema"
 import type { Addition, Removal, Replacement } from "@repo-tooling/eslint-plugin-dprint/Diff"
 import { DiffIterator } from "@repo-tooling/eslint-plugin-dprint/DiffIterator"
 import { RegularExpression } from "@repo-tooling/eslint-plugin-dprint/RegularExpression"
-import { absurd } from "@tsplus/stdlib/data/Function"
 import { ESLintUtils } from "@typescript-eslint/utils"
 import * as path from "path"
 
@@ -114,14 +113,11 @@ function createMessage(diff: Addition | Removal | Replacement): Message {
         }
       }
     }
-    default: {
-      return absurd(diff as never)
-    }
   }
 }
 
 export const Rule = ESLintUtils.RuleCreator((ruleName) =>
-  `https://github.com/tsplus/eslint/blob/master/packages/eslint-plugin-dprint/docs/rules/${ruleName}.md`
+  `https://github.com/tsplus/eslint/blob/master/packages/eslint-plugin-dprint/_docs/rules/${ruleName}.md`
 )
 
 export const dprint = Rule({
@@ -183,7 +179,7 @@ export const dprint = Rule({
             continue
           }
 
-          const range = diff.range.toNative()
+          const range = diff.range
 
           const loc = diff._tag === "Addition"
             ? sourceCode.getLocFromIndex(range[0])
@@ -208,9 +204,6 @@ export const dprint = Rule({
                 }
                 case "Replacement": {
                   return fixer.replaceTextRange(range, diff.newText)
-                }
-                default: {
-                  return absurd(diff as never)
                 }
               }
             }

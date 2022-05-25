@@ -1,6 +1,3 @@
-import { Case } from "@tsplus/stdlib/data/Case"
-import type { Tuple } from "@tsplus/stdlib/data/Tuple"
-
 /**
  * A `Diff` represents the different between two pieces of text.
  *
@@ -19,67 +16,77 @@ export const Diff: DiffOps = {}
  *
  * @tsplus type eslint/eslint-plugin-dprint/Diff/NoChange
  */
-export interface NoChange extends Case {
+export interface NoChange {
   readonly _tag: "NoChange"
 }
 /**
  * @tsplus static eslint/eslint-plugin-dprint/Diff NoChange
  */
-export const NoChange = Case.tagged<NoChange>("NoChange")
+export const NoChange: Diff = {
+  _tag: "NoChange"
+}
 
 /**
  * Represents a difference caused by the addition of text to a string.
  *
  * @tsplus type eslint/eslint-plugin-dprint/Diff/Addition
  */
-export interface Addition extends Case {
+export interface Addition {
   _tag: "Addition"
-  range: Tuple<[number, number]>
+  range: [number, number]
   newText: string
 }
 /**
  * @tsplus static eslint/eslint-plugin-dprint/Diff Addition
  */
-export const Addition = Case.tagged<Addition>("Addition")
+export function Addition(range: [number, number], newText: string): Diff {
+  return {
+    _tag: "Addition",
+    range,
+    newText
+  }
+}
 
 /**
  * Represents a difference caused by the removal of text from a string.
  *
  * @tsplus type eslint/eslint-plugin-dprint/Diff/Removal
  */
-export interface Removal extends Case {
+export interface Removal {
   _tag: "Removal"
-  range: Tuple<[number, number]>
+  range: [number, number]
   oldText: string
 }
 /**
  * @tsplus static eslint/eslint-plugin-dprint/Diff Removal
  */
-export const Removal = Case.tagged<Removal>("Removal")
+export function Removal(range: [number, number], oldText: string): Diff {
+  return {
+    _tag: "Removal",
+    range,
+    oldText
+  }
+}
 
 /**
  * Represents a difference caused by the replacement of text within a string.
  *
  * @tsplus type eslint/eslint-plugin-dprint/Diff/Replacement
  */
-export interface Replacement extends Case {
+export interface Replacement {
   _tag: "Replacement"
-  range: Tuple<[number, number]>
-  newText: string
+  range: [number, number]
   oldText: string
+  newText: string
 }
 /**
  * @tsplus static eslint/eslint-plugin-dprint/Diff Replacement
  */
-export const Replacement = Case.tagged<Replacement>("Replacement")
-
-/**
- * @tsplus unify eslint/eslint-plugin-dprint/Diff
- * @tsplus unify eslint/eslint-plugin-dprint/Diff/Addition
- * @tsplus unify eslint/eslint-plugin-dprint/Diff/NoChange
- * @tsplus unify eslint/eslint-plugin-dprint/Diff/Removal
- * @tsplus unify eslint/eslint-plugin-dprint/Diff/Replacement
- */
-export function unifyDiff<X extends Diff>(self: X): Diff {
-  return self
+export function Replacement(range: [number, number], oldText: string, newText: string): Diff {
+  return {
+    _tag: "Replacement",
+    range,
+    oldText,
+    newText
+  }
 }
