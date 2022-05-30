@@ -161,13 +161,17 @@ export const dprint = Rule({
         const fileText = sourceCode.getText()
         const config = options[0]?.config ?? {}
 
-        // Needs an absolute path
         if (!filePath || !path.isAbsolute(filePath)) {
           return
         }
 
-        // Does format
-        const formattedText = formatter.formatText(filePath, fileText, config)
+        let formattedText: string
+        try {
+          formattedText = formatter.formatText(filePath, fileText, config)
+        } catch {
+          return
+        }
+
         if (typeof formattedText !== "string") {
           return
         }
