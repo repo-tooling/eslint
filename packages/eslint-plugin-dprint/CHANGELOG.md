@@ -1,5 +1,11 @@
 # @repo-tooling/eslint-plugin-dprint
 
+## 0.0.4
+
+### Patch Changes
+
+- [#7](https://github.com/repo-tooling/eslint/pull/7) [`4c71b8b`](https://github.com/repo-tooling/eslint/commit/4c71b8bd9bf38c73be802cf3b7e7d61420c62619) Thanks [@IMax153](https://github.com/IMax153)! - fix dprint text format error
+
 ## 0.0.3
 
 ### Patch Changes
