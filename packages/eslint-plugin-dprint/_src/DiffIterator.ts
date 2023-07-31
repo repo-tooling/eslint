@@ -1,9 +1,9 @@
-import { Diff } from "@repo-tooling/eslint-plugin-dprint/Diff"
-import { RegularExpression } from "@repo-tooling/eslint-plugin-dprint/RegularExpression"
+import * as Diff from "@repo-tooling/eslint-plugin-dprint/Diff"
+import * as RegularExpression from "@repo-tooling/eslint-plugin-dprint/RegularExpression"
 import type { Change } from "diff"
 import { diffChars } from "diff"
 
-export class DiffIterator implements IterableIterator<Diff> {
+export class DiffIterator implements IterableIterator<Diff.Diff> {
   /**
    * All changes between two pieces of text detected by `diffChars`.
    */
@@ -21,7 +21,7 @@ export class DiffIterator implements IterableIterator<Diff> {
     this.changes = diffChars(oldText, newText)
   }
 
-  next(): IteratorResult<Diff> {
+  next(): IteratorResult<Diff.Diff> {
     if (this.done) {
       return { done: true, value: undefined }
     }
@@ -43,11 +43,11 @@ export class DiffIterator implements IterableIterator<Diff> {
     return this.currentIndex >= this.changes.length
   }
 
-  [Symbol.iterator](): IterableIterator<Diff> {
+  [Symbol.iterator](): IterableIterator<Diff.Diff> {
     return new DiffIterator(this.oldText, this.newText)
   }
 
-  private handleAdd(current: Change): Diff {
+  private handleAdd(current: Change): Diff.Diff {
     const next1 = this.changes[this.currentIndex + 1]
     const next2 = this.changes[this.currentIndex + 2]
 
@@ -78,7 +78,7 @@ export class DiffIterator implements IterableIterator<Diff> {
     return this.newAddedDiff(1, current.value)
   }
 
-  private handleRemove(current: Change): Diff {
+  private handleRemove(current: Change): Diff.Diff {
     const next1 = this.changes[this.currentIndex + 1]
     const next2 = this.changes[this.currentIndex + 2]
 
@@ -114,20 +114,20 @@ export class DiffIterator implements IterableIterator<Diff> {
     return this.newRemovedDiff(1, current.value)
   }
 
-  private newAddedDiff(numChanges: number, newText: string): Diff {
+  private newAddedDiff(numChanges: number, newText: string): Diff.Diff {
     const range: [number, number] = [this.currentLocation, this.currentLocation]
     this.currentIndex = this.currentIndex + numChanges
     return Diff.Addition(range, newText)
   }
 
-  private newRemovedDiff(numChanges: number, oldText: string): Diff {
+  private newRemovedDiff(numChanges: number, oldText: string): Diff.Diff {
     const range: [number, number] = [this.currentLocation, this.currentLocation + oldText.length]
     this.currentIndex = this.currentIndex + numChanges
     this.currentLocation = this.currentLocation + oldText.length
     return Diff.Removal(range, oldText)
   }
 
-  private newReplacedDiff(numChanges: number, oldText: string, newText: string): Diff {
+  private newReplacedDiff(numChanges: number, oldText: string, newText: string): Diff.Diff {
     const range: [number, number] = [this.currentLocation, this.currentLocation + oldText.length]
     this.currentIndex = this.currentIndex + numChanges
     this.currentLocation = this.currentLocation + oldText.length

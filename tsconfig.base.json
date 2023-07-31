@@ -25,7 +25,6 @@
     "allowJs": false,
     "checkJs": false,
     "forceConsistentCasingInFileNames": true,
-    "suppressImplicitAnyIndexErrors": true,
     "stripInternal": true,
     "noImplicitAny": true,
     "noImplicitThis": true,
@@ -48,7 +47,11 @@
       ],
       "@repo-tooling/eslint-plugin-dprint/*": [
         "./packages/eslint-plugin-dprint/_src/*"
-      ]
+      ],
+
+      "@typescript-eslint/utils": [
+        "./node_modules/@typescript-eslint/utils/dist"
+      ],
     }
   },
   "include": [],
