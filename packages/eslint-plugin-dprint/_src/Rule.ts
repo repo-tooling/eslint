@@ -1,13 +1,14 @@
 import { createFromBuffer } from "@dprint/formatter"
-import { getBuffer } from "@dprint/typescript"
+import { getPath } from "@dprint/typescript"
 import { ConfigSchema } from "@repo-tooling/eslint-plugin-dprint/ConfigSchema"
 import type { Addition, Removal, Replacement } from "@repo-tooling/eslint-plugin-dprint/Diff"
 import { DiffIterator } from "@repo-tooling/eslint-plugin-dprint/DiffIterator"
-import { RegularExpression } from "@repo-tooling/eslint-plugin-dprint/RegularExpression"
+import * as RegularExpression from "@repo-tooling/eslint-plugin-dprint/RegularExpression"
 import { ESLintUtils } from "@typescript-eslint/utils"
+import * as Fs from "fs"
 import * as path from "path"
 
-const formatter = createFromBuffer(getBuffer())
+const formatter = createFromBuffer(Fs.readFileSync(getPath()))
 
 export interface Message {
   messageId: keyof typeof dprint["meta"]["messages"]
@@ -126,7 +127,7 @@ export const dprint = Rule({
     type: "layout",
     docs: {
       description: "Format code with dprint",
-      recommended: "error"
+      recommended: "strict"
     },
     fixable: "code",
     messages: {
@@ -143,6 +144,7 @@ export const dprint = Rule({
       moveCode: "Require tweaking whitespaces around code {{text}}."
     },
     schema: {
+      type: "array",
       definitions: ConfigSchema.definitions,
       items: [{
         type: "object",

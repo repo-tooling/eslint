@@ -6,27 +6,23 @@ export const ConfigSchema: JSONSchema4 = {
     useTabs: {
       description: "Whether to use tabs (true) or spaces (false).",
       type: "boolean",
-      default: false,
-      oneOf: [{
-        enum: [true],
-        description: "Uses tabs for indentation."
-      }, {
-        enum: [false],
-        description: "Uses spaces for indentation."
-      }]
+      default: false
     },
     semiColons: {
       description: "How semi-colons should be used.",
       type: "string",
       default: "prefer",
       oneOf: [{
+        type: "string",
         enum: ["always"],
         description: "Always uses semi-colons where applicable."
       }, {
+        type: "string",
         enum: ["prefer"],
         description:
           "Prefers semi-colons, but doesn't add one in certain scenarios such as for the last member of a single-line type literal."
       }, {
+        type: "string",
         enum: ["asi"],
         description:
           "Uses automatic semi-colon insertion. Only adds a semi-colon at the start of some expression statements when necessary. Read more: https://standardjs.com/rules.html#semicolons"
@@ -37,16 +33,20 @@ export const ConfigSchema: JSONSchema4 = {
       type: "string",
       default: "alwaysDouble",
       oneOf: [{
+        type: "string",
         enum: ["alwaysDouble"],
         description: "Always uses double quotes."
       }, {
+        type: "string",
         enum: ["alwaysSingle"],
         description: "Always uses single quotes."
       }, {
+        type: "string",
         enum: ["preferDouble"],
         description:
           "Prefers using double quotes except in scenarios where the string contains more double quotes than single quotes."
       }, {
+        type: "string",
         enum: ["preferSingle"],
         description:
           "Prefers using single quotes except in scenarios where the string contains more single quotes than double quotes."
@@ -57,15 +57,19 @@ export const ConfigSchema: JSONSchema4 = {
       type: "string",
       default: "lf",
       oneOf: [{
+        type: "string",
         enum: ["auto"],
         description: "For each file, uses the last newline kind found in the file."
       }, {
+        type: "string",
         enum: ["crlf"],
         description: "Uses carriage return, line feed."
       }, {
+        type: "string",
         enum: ["lf"],
         description: "Uses line feed."
       }, {
+        type: "string",
         enum: ["system"],
         description: "Uses the system standard (ex. crlf on Windows)."
       }]
@@ -75,15 +79,19 @@ export const ConfigSchema: JSONSchema4 = {
       type: "string",
       default: "whenNotSingleLine",
       oneOf: [{
+        type: "string",
         enum: ["maintain"],
         description: "Uses braces if they're used. Doesn't use braces if they're not used."
       }, {
+        type: "string",
         enum: ["whenNotSingleLine"],
         description: "Uses braces when the body is on a different line."
       }, {
+        type: "string",
         enum: ["always"],
         description: "Forces the use of braces. Will add them if they aren't used."
       }, {
+        type: "string",
         enum: ["preferNone"],
         description: "Forces no braces when when the header is one line and body is one line. Otherwise forces braces."
       }]
@@ -93,15 +101,19 @@ export const ConfigSchema: JSONSchema4 = {
       type: "string",
       default: "sameLineUnlessHanging",
       oneOf: [{
+        type: "string",
         enum: ["maintain"],
         description: "Maintains the brace being on the next line or the same line."
       }, {
+        type: "string",
         enum: ["sameLine"],
         description: "Forces the brace to be on the same line."
       }, {
+        type: "string",
         enum: ["nextLine"],
         description: "Forces the brace to be on the next line."
       }, {
+        type: "string",
         enum: ["sameLineUnlessHanging"],
         description:
           "Forces the brace to be on the next line if the same line is hanging, but otherwise uses the same line."
@@ -113,12 +125,15 @@ export const ConfigSchema: JSONSchema4 = {
       type: "string",
       default: "maintain",
       oneOf: [{
+        type: "string",
         enum: ["maintain"],
         description: "Maintains the position of the expression."
       }, {
+        type: "string",
         enum: ["sameLine"],
         description: "Forces the whole statement to be on one line."
       }, {
+        type: "string",
         enum: ["nextLine"],
         description: "Forces the expression to be on the next line."
       }]
@@ -128,12 +143,15 @@ export const ConfigSchema: JSONSchema4 = {
       type: "string",
       default: "nextLine",
       oneOf: [{
+        type: "string",
         enum: ["maintain"],
         description: "Maintains the next control flow being on the next line or the same line."
       }, {
+        type: "string",
         enum: ["sameLine"],
         description: "Forces the next control flow to be on the same line."
       }, {
+        type: "string",
         enum: ["nextLine"],
         description: "Forces the next control flow to be on the next line."
       }]
@@ -143,12 +161,15 @@ export const ConfigSchema: JSONSchema4 = {
       type: "string",
       default: "onlyMultiLine",
       oneOf: [{
+        type: "string",
         enum: ["never"],
         description: "Trailing commas should not be used."
       }, {
+        type: "string",
         enum: ["always"],
         description: "Trailing commas should always be used."
       }, {
+        type: "string",
         enum: ["onlyMultiLine"],
         description: "Trailing commas should only be used in multi-line scenarios."
       }]
@@ -158,12 +179,15 @@ export const ConfigSchema: JSONSchema4 = {
       type: "string",
       default: "nextLine",
       oneOf: [{
+        type: "string",
         enum: ["maintain"],
         description: "Maintains the operator being on the next line or the same line."
       }, {
+        type: "string",
         enum: ["sameLine"],
         description: "Forces the operator to be on the same line."
       }, {
+        type: "string",
         enum: ["nextLine"],
         description: "Forces the operator to be on the next line."
       }]
@@ -172,38 +196,27 @@ export const ConfigSchema: JSONSchema4 = {
       description:
         "Set to prefer hanging indentation when exceeding the line width instead of making code split up on multiple lines.",
       type: "boolean",
-      default: false,
-      oneOf: [{
-        enum: [true],
-        description: ""
-      }, {
-        enum: [false],
-        description: ""
-      }]
+      default: false
     },
     preferSingleLine: {
       description: "If code should revert back from being on multiple lines to being on a single line when able.",
       type: "boolean",
-      default: false,
-      oneOf: [{
-        enum: [true],
-        description: ""
-      }, {
-        enum: [false],
-        description: ""
-      }]
+      default: false
     },
     sortOrder: {
       description: "The kind of sort ordering to use.",
       type: "string",
       default: "caseInsensitive",
       oneOf: [{
+        type: "string",
         enum: ["maintain"],
         description: "Maintains the current ordering."
       }, {
+        type: "string",
         enum: ["caseSensitive"],
         description: "Alphabetically and case sensitive."
       }, {
+        type: "string",
         enum: ["caseInsensitive"],
         description: "Alphabetically and case insensitive."
       }]
@@ -211,26 +224,22 @@ export const ConfigSchema: JSONSchema4 = {
     deno: {
       description: "Top level configuration that sets the configuration to what is used in Deno.",
       type: "boolean",
-      default: false,
-      oneOf: [{
-        enum: [true],
-        description: ""
-      }, {
-        enum: [false],
-        description: ""
-      }]
+      default: false
     },
     "arrowFunction.useParentheses": {
       description: "Whether to use parentheses around a single parameter in an arrow function.",
       type: "string",
       default: "maintain",
       oneOf: [{
+        type: "string",
         enum: ["force"],
         description: "Forces parentheses."
       }, {
+        type: "string",
         enum: ["maintain"],
         description: "Maintains the current state of the parentheses."
       }, {
+        type: "string",
         enum: ["preferNone"],
         description: "Prefers not using parentheses when possible."
       }]
@@ -238,38 +247,27 @@ export const ConfigSchema: JSONSchema4 = {
     "binaryExpression.linePerExpression": {
       description: "Whether to force a line per expression when spanning multiple lines.",
       type: "boolean",
-      default: false,
-      oneOf: [{
-        enum: [true],
-        description: "Formats with each part on a new line."
-      }, {
-        enum: [false],
-        description: "Maintains the line breaks as written by the programmer."
-      }]
+      default: false
     },
     "memberExpression.linePerExpression": {
       description: "Whether to force a line per expression when spanning multiple lines.",
       type: "boolean",
-      default: false,
-      oneOf: [{
-        enum: [true],
-        description: "Formats with each part on a new line."
-      }, {
-        enum: [false],
-        description: "Maintains the line breaks as written by the programmer."
-      }]
+      default: false
     },
     "enumDeclaration.memberSpacing": {
       description: "How to space the members of an enum.",
       type: "string",
       default: "maintain",
       oneOf: [{
+        type: "string",
         enum: ["newLine"],
         description: "Forces a new line between members."
       }, {
+        type: "string",
         enum: ["blankLine"],
         description: "Forces a blank line between members."
       }, {
+        type: "string",
         enum: ["maintain"],
         description: "Maintains whether a newline or blankline is used."
       }]
@@ -279,9 +277,11 @@ export const ConfigSchema: JSONSchema4 = {
       type: "string",
       default: "semiColon",
       oneOf: [{
+        type: "string",
         enum: ["semiColon"],
         description: "Use semi-colons."
       }, {
+        type: "string",
         enum: ["comma"],
         description: "Use commas."
       }]
@@ -289,290 +289,122 @@ export const ConfigSchema: JSONSchema4 = {
     "binaryExpression.spaceSurroundingBitwiseAndArithmeticOperator": {
       description: "Whether to surround the operator in a binary expression with spaces.",
       type: "boolean",
-      default: true,
-      oneOf: [{
-        enum: [true],
-        description: "Ex. `1 + 2`"
-      }, {
-        enum: [false],
-        description: "Ex. `1+2`"
-      }]
+      default: true
     },
     "commentLine.forceSpaceAfterSlashes": {
       description: "Forces a space after the double slash in a comment line.",
       type: "boolean",
-      default: true,
-      oneOf: [{
-        enum: [true],
-        description: "Ex. `//test` -> `// test`"
-      }, {
-        enum: [false],
-        description: "Ex. `//test` -> `//test`"
-      }]
+      default: true
     },
     "constructor.spaceBeforeParentheses": {
       description: "Whether to add a space before the parentheses of a constructor.",
       type: "boolean",
-      default: false,
-      oneOf: [{
-        enum: [true],
-        description: "Ex. `constructor ()`"
-      }, {
-        enum: [false],
-        description: "Ex. `constructor()`"
-      }]
+      default: false
     },
     "constructorType.spaceAfterNewKeyword": {
       description: "Whether to add a space after the `new` keyword in a constructor type.",
       type: "boolean",
-      default: false,
-      oneOf: [{
-        enum: [true],
-        description: "Ex. `type MyClassCtor = new () => MyClass;`"
-      }, {
-        enum: [false],
-        description: "Ex. `type MyClassCtor = new() => MyClass;`"
-      }]
+      default: false
     },
     "constructSignature.spaceAfterNewKeyword": {
       description: "Whether to add a space after the `new` keyword in a construct signature.",
       type: "boolean",
-      default: false,
-      oneOf: [{
-        enum: [true],
-        description: "Ex. `new (): MyClass;`"
-      }, {
-        enum: [false],
-        description: "Ex. `new(): MyClass;`"
-      }]
+      default: false
     },
     "doWhileStatement.spaceAfterWhileKeyword": {
       description: "Whether to add a space after the `while` keyword in a do while statement.",
       type: "boolean",
-      default: true,
-      oneOf: [{
-        enum: [true],
-        description: "Ex. `do {\n} while (condition);`"
-      }, {
-        enum: [false],
-        description: "Ex. `do {\n} while(condition);`"
-      }]
+      default: true
     },
     "exportDeclaration.spaceSurroundingNamedExports": {
       description: "Whether to add spaces around named exports in an export declaration.",
       type: "boolean",
-      default: true,
-      oneOf: [{
-        enum: [true],
-        description: "Ex. `export { SomeExport, OtherExport };`"
-      }, {
-        enum: [false],
-        description: "Ex. `export {SomeExport, OtherExport};`"
-      }]
+      default: true
     },
     "forInStatement.spaceAfterForKeyword": {
       description: "Whether to add a space after the `for` keyword in a \"for in\" statement.",
       type: "boolean",
-      default: true,
-      oneOf: [{
-        enum: [true],
-        description: "Ex. `for (const prop in obj)`"
-      }, {
-        enum: [false],
-        description: "Ex. `for(const prop in obj)`"
-      }]
+      default: true
     },
     "forOfStatement.spaceAfterForKeyword": {
       description: "Whether to add a space after the `for` keyword in a \"for of\" statement.",
       type: "boolean",
-      default: true,
-      oneOf: [{
-        enum: [true],
-        description: "Ex. `for (const value of myArray)`"
-      }, {
-        enum: [false],
-        description: "Ex. `for(const value of myArray)`"
-      }]
+      default: true
     },
     "forStatement.spaceAfterForKeyword": {
       description: "Whether to add a space after the `for` keyword in a \"for\" statement.",
       type: "boolean",
-      default: true,
-      oneOf: [{
-        enum: [true],
-        description: "Ex. `for (let i = 0; i < 5; i++)`"
-      }, {
-        enum: [false],
-        description: "Ex. `for(let i = 0; i < 5; i++)`"
-      }]
+      default: true
     },
     "forStatement.spaceAfterSemiColons": {
       description: "Whether to add a space after the semi-colons in a \"for\" statement.",
       type: "boolean",
-      default: true,
-      oneOf: [{
-        enum: [true],
-        description: "Ex. `for (let i = 0; i < 5; i++)`"
-      }, {
-        enum: [false],
-        description: "Ex. `for (let i = 0;i < 5;i++)`"
-      }]
+      default: true
     },
     "functionDeclaration.spaceBeforeParentheses": {
       description: "Whether to add a space before the parentheses of a function declaration.",
       type: "boolean",
-      default: false,
-      oneOf: [{
-        enum: [true],
-        description: "Ex. `function myFunction ()`"
-      }, {
-        enum: [false],
-        description: "Ex. `function myFunction()`"
-      }]
+      default: false
     },
     "functionExpression.spaceBeforeParentheses": {
       description: "Whether to add a space before the parentheses of a function expression.",
       type: "boolean",
-      default: false,
-      oneOf: [{
-        enum: [true],
-        description: "Ex. `function<T> ()`"
-      }, {
-        enum: [false],
-        description: "Ex. `function<T>()`"
-      }]
+      default: false
     },
     "functionExpression.spaceAfterFunctionKeyword": {
       description: "Whether to add a space after the function keyword of a function expression.",
       type: "boolean",
-      default: false,
-      oneOf: [{
-        enum: [true],
-        description: "Ex. `function <T>()`"
-      }, {
-        enum: [false],
-        description: "Ex. `function<T>()`"
-      }]
+      default: false
     },
     "getAccessor.spaceBeforeParentheses": {
       description: "Whether to add a space before the parentheses of a get accessor.",
       type: "boolean",
-      default: false,
-      oneOf: [{
-        enum: [true],
-        description: "Ex. `get myProp ()`"
-      }, {
-        enum: [false],
-        description: "Ex. `get myProp()`"
-      }]
+      default: false
     },
     "ifStatement.spaceAfterIfKeyword": {
       description: "Whether to add a space after the `if` keyword in an \"if\" statement.",
       type: "boolean",
-      default: true,
-      oneOf: [{
-        enum: [true],
-        description: "Ex. `if (true)`"
-      }, {
-        enum: [false],
-        description: "Ex. `if(true)`"
-      }]
+      default: true
     },
     "importDeclaration.spaceSurroundingNamedImports": {
       description: "Whether to add spaces around named imports in an import declaration.",
       type: "boolean",
-      default: true,
-      oneOf: [{
-        enum: [true],
-        description: "Ex. `import { SomeExport, OtherExport } from \"my-module\";`"
-      }, {
-        enum: [false],
-        description: "Ex. `import {SomeExport, OtherExport} from \"my-module\";`"
-      }]
+      default: true
     },
     "jsxExpressionContainer.spaceSurroundingExpression": {
       description: "Whether to add a space surrounding the expression of a JSX container.",
       type: "boolean",
-      default: false,
-      oneOf: [{
-        enum: [true],
-        description: "Ex. `{ myValue }`"
-      }, {
-        enum: [false],
-        description: "Ex. `{myValue}`"
-      }]
+      default: false
     },
     "method.spaceBeforeParentheses": {
       description: "Whether to add a space before the parentheses of a method.",
       type: "boolean",
-      default: false,
-      oneOf: [{
-        enum: [true],
-        description: "Ex. `myMethod ()`"
-      }, {
-        enum: [false],
-        description: "Ex. `myMethod()`"
-      }]
+      default: false
     },
     "setAccessor.spaceBeforeParentheses": {
       description: "Whether to add a space before the parentheses of a set accessor.",
       type: "boolean",
-      default: false,
-      oneOf: [{
-        enum: [true],
-        description: "Ex. `set myProp (value: string)`"
-      }, {
-        enum: [false],
-        description: "Ex. `set myProp(value: string)`"
-      }]
+      default: false
     },
     "taggedTemplate.spaceBeforeLiteral": {
       description: "Whether to add a space before the literal in a tagged templte.",
       type: "boolean",
-      default: true,
-      oneOf: [{
-        enum: [true],
-        description: "Ex. `html `<element />``"
-      }, {
-        enum: [false],
-        description: "Ex. `html`<element />``"
-      }]
+      default: true
     },
     "typeAnnotation.spaceBeforeColon": {
       description: "Whether to add a space before the colon of a type annotation.",
       type: "boolean",
-      default: false,
-      oneOf: [{
-        enum: [true],
-        description: "Ex. `function myFunction() : string`"
-      }, {
-        enum: [false],
-        description: "Ex. `function myFunction(): string`"
-      }]
+      default: false
     },
     "typeAssertion.spaceBeforeExpression": {
       description: "Whether to add a space before the expression in a type assertion.",
       type: "boolean",
-      default: true,
-      oneOf: [{
-        enum: [true],
-        description: "Ex. `<string> myValue`"
-      }, {
-        enum: [false],
-        description: "Ex. `<string>myValue`"
-      }]
+      default: true
     },
     "whileStatement.spaceAfterWhileKeyword": {
       description: "Whether to add a space after the `while` keyword in a while statement.",
       type: "boolean",
-      default: true,
-      oneOf: [{
-        enum: [true],
-        description: "Ex. `while (true)`"
-      }, {
-        enum: [false],
-        description: "Ex. `while(true)`"
-      }]
+      default: true
     }
   },
   properties: {

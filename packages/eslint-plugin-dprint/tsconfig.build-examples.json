@@ -4,7 +4,6 @@
         "outDir": "build/examples",
         "declarationDir": "build/examples",
         "tsBuildInfoFile": "build/tsbuildinfo/examples.tsbuildinfo",
-        "tsPlusConfig": "../../tsplus.config.json",
         "rootDir": "_examples"
     },
     "include": [

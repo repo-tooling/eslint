@@ -4,8 +4,10 @@
         "outDir": "build/test",
         "declarationDir": "build/test",
         "tsBuildInfoFile": "build/tsbuildinfo/test.tsbuildinfo",
-        "tsPlusConfig": "../../tsplus.config.json",
-        "rootDir": "_test"
+        "rootDir": "_test",
+        "types": [
+            "vitest/globals"
+        ]
     },
     "include": [
         "_test/**/*.ts"
@@ -15,7 +17,4 @@
             "path": "./tsconfig.build.json"
         }
     ],
-    "files": [
-        "../../tsplus.prelude.test.d.ts",
-    ]
 }
